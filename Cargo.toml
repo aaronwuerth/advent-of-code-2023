@@ -13,5 +13,10 @@ members = [
   "day06-2",
   "day07-1",
   "day07-2",
+  "day08-1",
+  "day08-2",
 ]
 resolver = "2"
+
+[workspace.dependencies]
+util = { path = "./util" }
