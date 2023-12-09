@@ -1,10 +1,16 @@
-use std::num::IntErrorKind;
+use std::str::FromStr;
+use std::fmt::Debug;
 
-pub fn parse_numbers(s: &str) -> Vec<u32> {
-    Vec::from_iter(s.split(&[' ', '\n', '\r']).filter_map(|num| match num.parse::<u32>() {
-        Ok(n) => Some(n),
-        Err(e) if *e.kind() == IntErrorKind::Empty => None,
-        Err(e) => panic!("Could not parse: \"{}\". Error: {}", s, e),
+pub fn parse_numbers<T: FromStr>(s: &str) -> Vec<T>
+where
+    <T as FromStr>::Err: Debug,
+{
+    Vec::from_iter(s.split(&[' ', '\n', '\r']).filter_map(|num| {
+        if num.is_empty() {
+            None
+        } else {
+            Some(num.parse::<T>().unwrap())
+        }
     }))
 }
 

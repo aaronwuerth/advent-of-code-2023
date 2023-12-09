@@ -5,10 +5,10 @@ fn main() {
     let mut buf = String::new();
 
     stdin().read_line(&mut buf).unwrap();
-    let times = parse_numbers(buf.split(':').nth(1).unwrap());
+    let times: Vec<u32> = parse_numbers(buf.split(':').nth(1).unwrap());
     buf.clear();
     stdin().read_line(&mut buf).unwrap();
-    let distances = parse_numbers(buf.split(':').nth(1).unwrap());
+    let distances: Vec<u32> = parse_numbers(buf.split(':').nth(1).unwrap());
 
     let anwser: u32 = times
         .iter()
