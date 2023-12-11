@@ -17,6 +17,8 @@ members = [
   "day08-2",
   "day09-1",
   "day09-2",
+  "day11-1",
+  "day11-2",
 ]
 resolver = "2"
 
